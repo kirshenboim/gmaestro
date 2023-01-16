@@ -3,3 +3,4 @@ description: granulate gmaestro deployment helm-chart
 name: gmaestro
 type: application
 version: 1.0.0-latest
+
