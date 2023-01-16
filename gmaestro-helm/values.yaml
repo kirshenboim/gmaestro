@@ -5,17 +5,12 @@ clientName: ""
 # -- plain text service name
 serviceName: ""
 # -- plain text namespace we deploy the gmaestro
-namespace: ""
-# -- Image tags should not be changed unless explicitly needed
-maestroImageTag: latest
-
-# -- labels are inserted into the maestro agent deployment
-customLabel:
-  labelA: ""
-
-# -- node selector is used granulate maestro agent deployment
-nodeSelector:
-  firstKey: ""
+namespace: "default"
 
 secrets:
-  grafanaMetricsAuthKey: longAuthKeyHere
+  # -- grafana auth-key - metrics
+  grafanaMetricsAuthKey: ""
+  # -- grafana auth-key - logs
+  grafanaLogsAuthKey: ""
+  # -- docker password
+  dockerConfigSecret: ""
