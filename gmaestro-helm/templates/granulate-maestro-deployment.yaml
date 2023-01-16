@@ -1,11 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  {{- with .Values.customLabel}}
-  labels:
-    app: granulate-maestro
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
   name: granulate-maestro
   namespace: {{ .Values.namespace }}
 spec:
@@ -18,10 +13,6 @@ spec:
       labels:
         app: granulate-maestro
     spec:
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       containers:
       - env:
         - name: MAESTRO_CLIENT_ID
@@ -50,7 +41,7 @@ spec:
               fieldPath: metadata.namespace
         - name: MAESTRO_SERVER_HOST
           value: https://containerunits.granulate.io
-        image: index.docker.io/granulate/maestro:{{ .Values.imageTag }}
+        image: index.docker.io/granulate/maestro:latest
         name: granulate-maestro
         ports:
         - containerPort: 8000

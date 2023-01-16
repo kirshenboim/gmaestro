@@ -1,7 +1,7 @@
 kind: ConfigMap
 metadata:
   name: grafana-config
-  namespace: {{ .Values.namespace }}
+  namespace: default
 apiVersion: v1
 data:
   agent.yaml: |
@@ -30,9 +30,28 @@ data:
                 selectors:
                   - role: "pod"
                     label: "app=granulate-maestro"
-
           scheme: http
           tls_config:
               ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
               insecure_skip_verify: false
               server_name: kubernetes
+    loki:
+      configs:
+      - name: default
+        positions:
+          filename: /tmp/positions.yaml
+        scrape_configs:
+          - job_name: maestro-logs
+            static_configs:
+              - targets: [localhost]
+                labels:
+                  job: maestro-logs
+                  __path__: /var/log/maestro.log
+                  client_id: {{ .Values.b64ClientId }}
+                  client_name: {{ .Values.clientName }}
+                  service_name: {{ .Values.serviceName }}
+        clients:
+          - url: https://logs-prod-us-central1.grafana.net/api/prom/push
+            basic_auth:
+              username: 147844
+              password: {{ .Values.secrets.grafanaLogsAuthKey }}
