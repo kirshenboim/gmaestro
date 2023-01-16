@@ -6,7 +6,7 @@ entries:
     description: granulate gmaestro deployment helm-chart
     digest: e75562351e21937dd0636d3a8bf791fdd74d5a2fd99deaf556760c7c1992c70c
     name: gmaestro
-    type: application
+    type: library
     urls:
     - gmaestro-1.0.0-latest.tgz
     version: 1.0.0-latest
