@@ -13,7 +13,7 @@ Once Helm is set up properly, add the repo as follows:
 $  helm repo add gmaestro https://kirshenboim.github.io/gmaestro/
 ```
 
-You can then run `helm search repo vmware-tanzu` to see the charts.
+You can then run `helm repo list | grep gmaestro` to see the charts.
 
 ## Contributing
 
