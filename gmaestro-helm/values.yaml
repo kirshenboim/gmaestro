@@ -1,16 +1,14 @@
 # -- granulate base 64 id
 b64ClientId: ""
-# -- plain text name
+# -- plain text client name
 clientName: ""
 # -- plain text service name
 serviceName: ""
-# -- plain text namespace we deploy the gmaestro
+# -- plain text namespace to deploy the gmaestro
 namespace: "default"
 
 secrets:
-  # -- grafana auth-key - metrics
+  # -- grafana auth-key for metrics
   grafanaMetricsAuthKey: ""
-  # -- grafana auth-key - logs
+  # -- grafana auth-key for logs
   grafanaLogsAuthKey: ""
-  # -- docker password
-  dockerConfigSecret: ""
