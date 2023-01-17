@@ -1,7 +1,7 @@
 kind: ConfigMap
 metadata:
   name: grafana-config
-  namespace: default
+  namespace: {{ .Values.namespace }}
 apiVersion: v1
 data:
   agent.yaml: |
